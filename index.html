@@ -2,30 +2,30 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
-  <title>카카오톡 발송용 폼</title>
+  <meta name="viewport" content="width=device-width, initial-width=1.0">
+  <title>모바일 초대장</title>
   <script src="https://t1.kakaocdn.net/kakao_js_sdk/2.7.2/kakao.min.js"></script>
   
   <script>
+    // 1. 발급받은 자바스크립트 키로 초기화
     Kakao.init('afcb2f5459127a85b500592fab59e860'); 
     
+    // 2. 카카오톡 공유하기 함수
     function shareMessage() {
-      // 손님들이 버튼을 누르면 이동할 진짜 초대장 주소 (index.html)
-      const guestUrl = 'https://vininebeauty2020-ai.github.io/my-portfolio/2026_convention/';
-      
       Kakao.Share.sendDefault({
         objectType: 'feed',
         content: {
-          title: '2026 지역대회에 초대합니다',
-          description: '소중한 분들을 초대합니다.',
-          imageUrl: 'https://vininebeauty2020-ai.github.io/my-portfolio/2026_convention/img/초대장_이미지1.png', 
+          title: '초대합니다', // 카카오톡 톡방에 보일 큰 제목
+          description: '소중한 분들을 초대합니다.', // 제목 아래의 작은 설명
+          imageUrl: 'https://vininebeauty2020-ai.github.io/2026_JW_convention/img.jpg', // 줄바꿈 해결!
           link: {
-            mobileWebUrl: guestUrl,
-            webUrl: guestUrl,
+            mobileWebUrl: 'https://tozz.kr/2026_convention/', // 끝에 '요' 삭제!
+            webUrl: 'https://tozz.kr/2026_convention/',
           },
         },
         buttons: [
           {
-            title: 'JW 공식웹사이트',
+            title: 'JW 공식웹사이트 바로가기',
             link: {
               mobileWebUrl: 'https://www.jw.org/ko/%EC%97%AC%ED%98%B8%EC%99%80%EC%9D%98-%EC%A6%9D%EC%9D%B8/conventions/',
               webUrl: 'https://www.jw.org/ko/%EC%97%AC%ED%98%B8%EC%99%80%EC%9D%98-%EC%A6%9D%EC%9D%B8/conventions/',
@@ -34,8 +34,8 @@
           {
             title: '초대장 보기',
             link: {
-              mobileWebUrl: guestUrl,
-              webUrl: guestUrl,
+              mobileWebUrl: 'https://tozz.kr/2026_convention/',
+              webUrl: 'https://tozz.kr/2026_convention/',
             },
           }
         ],
@@ -43,14 +43,14 @@
     }
   </script>
 </head>
-<body style="text-align: center; padding-top: 100px; background-color: #f0f0f0;">
+<body>
 
-  <h2>비밀 전송용 폼 🚀</h2>
-  <p>이 페이지는 초대장을 카톡으로 쏠 때만 씁니다!</p>
-  
-  <button onclick="shareMessage()" style="padding: 15px 30px; font-size: 18px; font-weight: bold; background-color: #FEE500; border: none; border-radius: 8px; cursor: pointer; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
-    카카오톡으로 손님들에게 쏘기!
-  </button>
+  <div style="text-align: center; margin-top: 50px;">
+    <h2>모바일 초대장</h2>
+    <button onclick="shareMessage()" style="padding: 10px 20px; font-size: 16px; background-color: #FEE500; border: none; border-radius: 5px; cursor: pointer;">
+      카카오톡으로 초대장 보내기
+    </button>
+  </div>
 
 </body>
 </html>
