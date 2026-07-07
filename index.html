@@ -3,24 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-width=1.0">
-  <title>초대장 보내기</title>
+  <title>모바일 초대장</title>
   <script src="https://t1.kakaocdn.net/kakao_js_sdk/2.7.2/kakao.min.js"></script>
   
   <script>
+    // 1. 발급받은 자바스크립트 키로 초기화
     Kakao.init('afcb2f5459127a85b500592fab59e860'); 
     
+    // 2. 카카오톡 공유하기 함수
     function shareMessage() {
       Kakao.Share.sendDefault({
         objectType: 'feed',
         content: {
-          title: '초대합니다',
-          description: '소중한 분들을 초대합니다.',
-          // 깃허브에 올린 썸네일 이미지 주소
-          imageUrl: 'https://vininebeauty2020-ai.github.io/2026_JW_convention/img.jpg', 
+          title: '초대합니다', // 카카오톡 톡방에 보일 큰 제목
+          description: '소중한 분들을 초대합니다.', // 제목 아래의 작은 설명
+          imageUrl: 'https://vininebeauty2020-ai.github.io/2026_JW_convention/img.jpg', // 줄바꿈 해결!
           link: {
-            // 톡방에서 사진이나 제목을 눌렀을 때 갈 주소 (내 도메인)
-            mobileWebUrl: 'https://tozz.kr',
-            webUrl: 'https://tozz.kr',
+            mobileWebUrl: 'https://tozz.kr/2026_convention/', // 끝에 '요' 삭제!
+            webUrl: 'https://tozz.kr/2026_convention/',
           },
         },
         buttons: [
@@ -34,9 +34,8 @@
           {
             title: '초대장 보기',
             link: {
-              // 초대장 보기 버튼을 눌렀을 때 갈 주소 (내 도메인)
-              mobileWebUrl: 'https://tozz.kr',
-              webUrl: 'https://tozz.kr',
+              mobileWebUrl: 'https://tozz.kr/2026_convention/',
+              webUrl: 'https://tozz.kr/2026_convention/',
             },
           }
         ],
@@ -47,7 +46,7 @@
 <body>
 
   <div style="text-align: center; margin-top: 50px;">
-    <h2>모바일 초대장 전송 폼</h2>
+    <h2>모바일 초대장</h2>
     <button onclick="shareMessage()" style="padding: 10px 20px; font-size: 16px; background-color: #FEE500; border: none; border-radius: 5px; cursor: pointer;">
       카카오톡으로 초대장 보내기
     </button>
