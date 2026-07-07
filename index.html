@@ -2,110 +2,41 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>2026 지역대회 초대장</title>
-  
+  <meta name="viewport" content="width=device-width, initial-width=1.0">
+  <title>초대장 보내기</title>
   <script src="https://t1.kakaocdn.net/kakao_js_sdk/2.7.2/kakao.min.js"></script>
-
-  <style>
-    /* 깔끔하고 고급스러운 모바일 초대장 스타일링 */
-    body {
-      margin: 0;
-      padding: 0;
-      background-color: #f9f9f9;
-      font-family: 'Noto Sans KR', sans-serif;
-      color: #333;
-      display: flex;
-      justify-content: center;
-    }
-    .container {
-      width: 100%;
-      max-width: 450px; /* 스마트폰 화면 크기에 고정 */
-      background-color: #ffffff;
-      min-height: 100vh;
-      box-shadow: 0 0 10px rgba(0,0,0,0.05);
-      padding-bottom: 50px;
-    }
-    .invitation-img {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
-    .content-box {
-      padding: 30px 20px;
-      text-align: center;
-    }
-    .title {
-      font-size: 22px;
-      font-weight: bold;
-      color: #1a1a1a;
-      margin-bottom: 15px;
-      letter-spacing: -0.5px;
-    }
-    .description {
-      font-size: 15px;
-      line-height: 1.6;
-      color: #555;
-      margin-bottom: 30px;
-    }
-    /* 버튼 스타일 */
-    .btn {
-      display: block;
-      width: 100%;
-      padding: 15px 0;
-      margin-bottom: 12px;
-      border-radius: 8px;
-      font-size: 16px;
-      font-weight: bold;
-      text-decoration: none;
-      text-align: center;
-      border: none;
-      cursor: pointer;
-      box-sizing: border-box;
-    }
-    .btn-jw {
-      background-color: #4a5568;
-      color: white;
-    }
-    .btn-kakao {
-      background-color: #FEE500;
-      color: #191919;
-    }
-  </style>
-
+  
   <script>
-    // 1. 카카오 SDK 초기화
     Kakao.init('afcb2f5459127a85b500592fab59e860'); 
     
-    // 2. 카카오톡 공유 기능 (현재 초대장 주소를 자동으로 링크함)
     function shareMessage() {
-      // 현재 손님이 접속 중인 웹사이트 주소를 자동으로 가져옵니다 (tozz.kr 주소 대응)
-      const currentUrl = window.location.href; 
-      
       Kakao.Share.sendDefault({
         objectType: 'feed',
         content: {
-          title: '2026 지역대회에 초대합니다',
-          description: '소중한 분들을 친절히 초대합니다. 상세 내용을 확인해 보세요.',
+          title: '초대합니다',
+          description: '소중한 분들을 초대합니다.',
+          // 깃허브에 올린 썸네일 이미지 주소
           imageUrl: 'https://vininebeauty2020-ai.github.io/2026_JW_convention/img.jpg', 
           link: {
-            mobileWebUrl: currentUrl,
-            webUrl: currentUrl,
+            // 톡방에서 사진이나 제목을 눌렀을 때 갈 주소 (내 도메인)
+            mobileWebUrl: 'https://tozz.kr',
+            webUrl: 'https://tozz.kr',
           },
         },
         buttons: [
           {
-            title: '초대장 열기',
-            link: {
-              mobileWebUrl: currentUrl,
-              webUrl: currentUrl,
-            },
-          },
-          {
-            title: 'JW 공식웹사이트',
+            title: 'JW 공식웹사이트 바로가기',
             link: {
               mobileWebUrl: 'https://www.jw.org/ko/%EC%97%AC%ED%98%B8%EC%99%80%EC%9D%98-%EC%A6%9D%EC%9D%B8/conventions/',
               webUrl: 'https://www.jw.org/ko/%EC%97%AC%ED%98%B8%EC%99%80%EC%9D%98-%EC%A6%9D%EC%9D%B8/conventions/',
+            },
+          },
+          {
+            title: '초대장 보기',
+            link: {
+              // 초대장 보기 버튼을 눌렀을 때 갈 주소 (내 도메인)
+              mobileWebUrl: 'https://tozz.kr',
+              webUrl: 'https://tozz.kr',
             },
           }
         ],
@@ -115,25 +46,11 @@
 </head>
 <body>
 
-  <div class="container">
-    <img src="img.jpg" alt="초대장 메인 이미지" class="invitation-img">
-
-    <div class="content-box">
-      <div class="title">소중한 분들을 초대합니다</div>
-      <div class="description">
-        오셔서 자리를 빛내주시면 감사하겠습니다.<br>
-        아래 버튼을 통해 자세한 정보와 공식 웹사이트 내용을<br>
-        확인하실 수 있습니다.
-      </div>
-
-      <a href="https://www.jw.org/ko/%EC%97%AC%ED%98%B8%EC%99%80%EC%9D%98-%EC%A6%9D%EC%9D%B8/conventions/" target="_blank" class="btn btn-jw">
-        JW 공식웹사이트 바로가기
-      </a>
-      
-      <button onclick="shareMessage()" class="btn btn-btn btn-kakao">
-        이 초대장 카카오톡으로 공유하기
-      </button>
-    </div>
+  <div style="text-align: center; margin-top: 50px;">
+    <h2>모바일 초대장 전송 폼</h2>
+    <button onclick="shareMessage()" style="padding: 10px 20px; font-size: 16px; background-color: #FEE500; border: none; border-radius: 5px; cursor: pointer;">
+      카카오톡으로 초대장 보내기
+    </button>
   </div>
 
 </body>
